@@ -1,0 +1,28 @@
+<%- include('../partials/header.ejs') -%>
+
+    <form action='/signup' method='POST'>
+        <div>
+            <label for='name'>Name</label>
+            <input id='name' name='name' type='text'>
+        </div>
+        <div>
+            <label for='email'>Email</label>
+            <input id='email' name='email' type='email'>
+        </div>
+        <div>
+            <label for='password'>Password</label>
+            <input id='password' name='password' type='password'>
+        </div>
+        <div>
+            <label for='confirmPassword'>Confirm Password</label>
+            <input id='confirmPassword' name='confirmPassword' type='password'>
+        </div>
+        <div>
+            <% if(message) { %>
+                <p style='color: red'><%= message %></p>
+            <% } %>    
+        </div>
+            <button type='submit'>Signup</button>
+    </form>
+
+<%- include('../includes/footer.ejs') -%>
