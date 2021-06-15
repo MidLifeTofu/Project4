@@ -3,7 +3,7 @@ const app = express()
 const PORT = process.env.PORT || 3000
 
 //postgres setup
-const db = require('./database')
+const db = require('./database')        // TODO: double check these paths
 const client = require('./database')
 
 //body parser for post requests

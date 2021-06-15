@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
 
-    // validate form fields
+    // TODO: validate form fields
 
 
     // check whether password and confirm-password are the same
@@ -21,7 +21,7 @@ router.post('/', (req, res) => {
     
     console.log(req.body)
 
-    // check whether user already exists (check if email is already in db)
+    // TODO: check whether user already exists (check if email is already in db)
 
 
 
