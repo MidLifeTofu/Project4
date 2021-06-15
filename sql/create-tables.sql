@@ -1,0 +1,16 @@
+DROP TABLE IF NOT EXISTS users,
+
+CREATE TABLE IF NOT EXISTS users (
+    id SERIAL PRIMARY KEY,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    name VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+
+DROP TABLE IF NOT EXISTS schedules (
+    id SERIAL PRIMARY KEY,
+    user_ID NOT NULL INT,
+    day INTEGER NOT NULL CHECK (day >= 1 AND day <= 7),
+    start_at TIME NOT NULL,
+    end_at TIME NOT NULL
+);
