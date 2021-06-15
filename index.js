@@ -24,7 +24,10 @@ const signupRouter = require('./routes/signup')
 app.use('/login', loginRouter)
 app.use('/signup', signupRouter)
 
-
+// LOGIN PAGE
+app.get('/', (req, res) => {
+    res.render('pages/login')
+})
 
 
 app.listen(PORT, () => {
