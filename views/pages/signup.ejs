@@ -1,11 +1,9 @@
-<%- include('../partials/header.ejs') -%>
+<div>
+    <h2>Create Account</h2>
+    <p>Complete the form below to add a new user to the database. All fields are required.</p>
+</div>
 
-    <div>
-        <h2>Create Account</h2>
-        <p>Complete the form below to add a new user to the database. All fields are required.</p>
-    </div>
-
-    <div class="formContainer">
+<div class="formContainer">
     <form action='/signup' method='POST'>
         <div>
             <label for='name'>First Name:</label>
@@ -32,8 +30,6 @@
                 <p style='color: red'><%= message %></p>
             <% } %>    
         </div>
-            <button type='submit'>Sign Up</button>
+        <button type='submit'>Sign Up</button>
     </form>
-    </div>
-
-<%- include('../partials/footer.ejs') -%>
+</div>
