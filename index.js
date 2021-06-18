@@ -17,18 +17,20 @@ app.set('view engine', 'ejs')
 app.use(express.static('public'))
 
 // router files
+const homepageRouter = require('./routes/homepage')
 const loginRouter = require('./routes/login')
 const signupRouter = require('./routes/signup')
 const newScheduleRouter = require('./routes/newschedule')
 
 // routes
+app.use('/', homepageRouter)
 app.use('/login', loginRouter)
 app.use('/signup', signupRouter)
 app.use('/newschedule', newScheduleRouter)
 
 // LOGIN PAGE
 app.get('/', (req, res) => {
-    res.render('pages/login')
+    res.render('pages/homepage')
 })
 
 
