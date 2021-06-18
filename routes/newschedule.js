@@ -4,7 +4,8 @@ const db = require('../database')
 
 router.get('/', (req, res) => {
     res.render('pages/newschedule', {
-        message: req.query.message
+        message: req.query.message,
+        title: 'Schedules'
     })
 
 })
