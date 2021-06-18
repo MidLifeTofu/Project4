@@ -17,7 +17,7 @@ const { redirectToLogin } = require('../middlewear')
 //     })
 // })
 
-router.get('/', /* redirectToLogin, */ (req, res) => {
+router.get('/', redirectToLogin, (req, res) => {
     db.any('SELECT * FROM users;')
     .then((usersData) => {
         db.any('SELECT * FROM schedules;')

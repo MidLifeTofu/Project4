@@ -2,6 +2,7 @@ const express = require('express')
 const db = require('../database')
 const router = express.Router()
 const bcrypt = require('bcrypt')
+const session = require('express-session')
 
 // Login page
 router.get('/', (req, res) => {
@@ -33,7 +34,7 @@ router.post('/', (req, res) => {
                 if (result) {
                     // if successful, create session and redirect
                     req.session.userId = existingUser.id
-                    res.send(req.session)
+                    res.redirect('/')
                 } 
                 else {
                     console.log(err)
