@@ -3,7 +3,7 @@ const db = require('../database')
 const router = express.Router()
 
 const bcrypt = require('bcrypt');
-const saltRounds = 10;
+const saltRounds = 5;
 
 // Sign Up page
 router.get('/', (req, res) => {
@@ -14,11 +14,10 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-
     // Validate fields so that they must require data
 
     // check whether password and confirm-password are the same
-    if (req.body.password != req.body.confirm-password) {
+    if (req.body.password != req.body.confirmPassword) {
         return res.redirect("/signup?message=Passwords%20don't%20match.")
     }
 
@@ -31,20 +30,23 @@ router.post('/', (req, res) => {
         else {
             const newUser = {
                 email: req.body.email.toLowerCase(),
-                name: req.body.name,
+                firstname: req.body.name,
+                surname: req.body.surname,
                 password: bcrypt.hashSync(req.body.password, saltRounds)
             }
 
-            db.none('INSERT INTO users(email, name, password) VALUES ($1, $2, $3);',
-            [newUser.email, newUser.name, newUser.password])
+            db.none('INSERT INTO users(first_name, surname, email, password) VALUES ($1, $2, $3 $4);',
+            [newUser.firstName, newUser.surname, newUser.email, newUser.password])
             .then(() => {
                 console.log(newUser)
                 res.redirect('/login')
             })
             .catch((err) => {
                 // Error if user hasn't been inserted into database
+                console.log(err.message)
+                console.log(newUser.password)
                 const message = err.message.replace(/ /g, '%20')
-                res.redirect(`/singup?message=${message}`)
+                res.redirect(`/signup?message=${message}`)
             })
         }
     })

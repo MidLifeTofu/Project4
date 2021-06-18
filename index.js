@@ -53,8 +53,9 @@ const errorRouter = require('./routes/error')
 app.use('/', homeRouter)
 app.use('/users', usersRouter)
 app.use('/login', loginRouter)
+app.use('/logout', logoutRouter)
 app.use('/signup', signupRouter)
-app.use('*', errorRouter)
+// app.use('*', errorRouter)
 
 
 // PORT
