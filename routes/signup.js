@@ -9,6 +9,7 @@ const saltRounds = 5;
 router.get('/', (req, res) => {
     res.render('pages/signup', {
         message: req.query.message,
+        req: req,
         title: 'Sign up'
     })
 })

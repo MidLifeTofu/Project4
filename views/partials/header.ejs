@@ -3,11 +3,12 @@
     <img src='/Assets/logo_blanc.png' alt='White Mr. Coffee Logo' id='whiteLogo'>
     <h1>Scheduling Website</h1>
     </div>
-    <div>
-        <a href="/">Home</a>
-        <a href="/login">Login</a>
-        <a href="/signup">Sign Up</a>
-        <a href="/newschedule">Schedule</a>
-    </div>
+    <% if (req.session.userId) { %>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/newschedule">New Schedules</a>
+            <a href="/logout">Logout</a>
+        </nav>
+    <% } %>
 </header>
 <main>

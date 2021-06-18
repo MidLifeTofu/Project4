@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const { redirectToLogin } = require('../middlewear')
 
-router.get('/', /* redirectToLogin, */ (req, res) => {
+router.get('/', redirectToLogin, (req, res) => {
     req.session.destroy(function(err) {
         if (err) {
             console.log(err)
