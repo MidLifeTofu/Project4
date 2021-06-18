@@ -57,7 +57,7 @@ app.use('/login', loginRouter)
 app.use('/logout', logoutRouter)
 app.use('/signup', signupRouter)
 app.use('/newschedule', newScheduleRouter)
-// app.use('*', errorRouter)
+app.use('*', errorRouter)
 
 // PORT
 app.listen(PORT, () => {
