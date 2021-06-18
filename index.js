@@ -19,10 +19,12 @@ app.use(express.static('public'))
 // router files
 const loginRouter = require('./routes/login')
 const signupRouter = require('./routes/signup')
+const newScheduleRouter = require('./routes/newschedule')
 
 // routes
 app.use('/login', loginRouter)
 app.use('/signup', signupRouter)
+app.use('/newschedule', newScheduleRouter)
 
 // LOGIN PAGE
 app.get('/', (req, res) => {

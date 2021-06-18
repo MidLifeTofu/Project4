@@ -1,0 +1,32 @@
+<%- include('../partials/header.ejs') -%>
+
+<div>
+    <h2>New Schedule</h2>
+    <p>Enter all details to create a new schedule.</p>
+</div>
+
+    <form action='/newschedule' method='POST'>
+        <div>
+            <label for='user_ID'>User ID:</label>
+            <input id='user_ID' name='user_ID' type='number'>
+        </div>
+        <div>
+            <label for='day'>Day:</label>
+            <input id='day' name='day' type='number'>
+        </div>
+        <div>
+            <label for='start_at'>Start At:</label>
+            <input id='start_at' name='start_at' type='time'>
+        </div>
+        <div>
+            <label for='end_at'>End At:</label>
+            <input id='end_at' name='end_at' type='time'>
+        </div>
+        <button type='submit'>Submit Schedule</button>
+    </form>
+<div>
+<h2>Your current Schedule:</h2>
+<p>Here is a list of your current schedules:</p>
+</div>
+
+<%- include('../partials/footer.ejs') -%>
