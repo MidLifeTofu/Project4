@@ -48,6 +48,7 @@ const loginRouter = require('./routes/login')
 const signupRouter = require('./routes/signup')
 const logoutRouter = require('./routes/logout')
 const usersRouter = require('./routes/users')
+const newScheduleRouter = require('./routes/newschedule')
 const errorRouter = require('./routes/error')
 
 app.use('/', homeRouter)
@@ -55,8 +56,8 @@ app.use('/users', usersRouter)
 app.use('/login', loginRouter)
 app.use('/logout', logoutRouter)
 app.use('/signup', signupRouter)
+app.use('/newschedule', newScheduleRouter)
 // app.use('*', errorRouter)
-
 
 // PORT
 app.listen(PORT, () => {
