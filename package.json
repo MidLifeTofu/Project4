@@ -4,14 +4,21 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev": "nodemon -r dotenv/config index.js",
+    "create-database": "psql -U postgres -h localhost -f sql/create-database.sql",
+    "create-tables": "psql -U postgres -h localhost -d mrcoffee -f sql/create-tables.sql",
+    "seed-tables": "psql -U postgres -h localhost -d mrcoffee -f sql/seed-tables.sql",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "dotenv": "^10.0.0",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.17.2",
     "pg": "^8.6.0",
     "pg-promise": "^10.10.2"
   },
