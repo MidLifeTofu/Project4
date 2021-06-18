@@ -25,7 +25,8 @@ router.get('/', redirectToLogin, (req, res) => {
             res.render('pages/home', {
                 users: usersData,
                 schedules: schedulesData,
-                title: "homepage"
+                req: req,
+                title: "homepage",
             })
         })
     })

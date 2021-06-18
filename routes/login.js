@@ -3,12 +3,14 @@ const db = require('../database')
 const router = express.Router()
 const bcrypt = require('bcrypt')
 const session = require('express-session')
+const { redirectToHome } = require('../middlewear')
 
 // Login page
-router.get('/', (req, res) => {
+router.get('/', redirectToHome, (req, res) => {
     res.render('pages/login', {
         message: req.query.message,
-        title: 'Login'
+        req: req,
+        title: 'Login',
     })
 })
 

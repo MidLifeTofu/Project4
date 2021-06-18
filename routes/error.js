@@ -5,6 +5,7 @@ const router = express.Router()
 router.get('/', (req, res) => {
     res.status(404).render('pages/error', {
         title: 'Error',
+        req: req,
         message: req.query.message
     })
 })
