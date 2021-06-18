@@ -1,20 +1,44 @@
-<table>
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Email</th>
-            <th>Name</th>
-            <th>password</th>
-        </tr>
-    </thead>
-    <tbody>
-        <% for (let i = 0; i < users.length; i++) { %>
+<div class="flex evenly">
+    <table>
+        <thead>
             <tr>
-                <td><%= users[i].id %></td>
-                <td><%= users[i].email %></td>
-                <td><%= users[i].name %></td>
-                <td><%= users[i].password %></td>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Surname</th>
+                <th>Email</th>
+                <th>Password</th>
             </tr>
-        <% } %>
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            <% for (let i = 0; i < users.length; i++) { %>
+                <tr>
+                    <td><%= users[i].id %></td>
+                    <td><%= users[i].first_name %></td>
+                    <td><%= users[i].surname %></td>
+                    <td><%= users[i].email %></td>
+                    <td><%= users[i].password %></td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Day</th>
+                <th>Start Time</th>
+                <th>End Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for (let i = 0; i < schedules.length; i++) { %>
+                <tr>
+                    <td><%= schedules[i].user_id %></td>
+                    <td><%= schedules[i].day %></td>
+                    <td><%= schedules[i].start_at %></td>
+                    <td><%= schedules[i].end_at %></td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+</div>

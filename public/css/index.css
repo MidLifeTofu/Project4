@@ -17,6 +17,10 @@ main {
     justify-content: space-between; /* Splits the nav div's to be on each side */
 }
 
+.flex.evenly {
+    justify-content: space-evenly;
+}
+
 /* HEADER */
 
 header {
