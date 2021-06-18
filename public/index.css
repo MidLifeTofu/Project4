@@ -14,8 +14,19 @@ main {
 header {
     background-color: #6a7b8b;
     color: white;
+    
+}
+
+header > div:first-child {
     display: flex;
     align-items: center;
+}
+
+header > div:nth-child(2){
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 0 0 1% 0;
 }
 
 header > h1 {
