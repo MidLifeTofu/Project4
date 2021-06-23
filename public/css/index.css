@@ -21,6 +21,15 @@ main {
     justify-content: space-evenly;
 }
 
+#tableHeading {
+    background-color: #6a7b8b;
+    color: white;
+}
+
+th, td {
+    padding: 10px 10px;
+}
+
 /* HEADER */
 
 header {
@@ -49,6 +58,12 @@ header > h1 {
     height: 100px;
     width: auto;
     margin: 10px 10px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
 }
 
 /* FOOTER */
@@ -93,11 +108,3 @@ button {
     margin: 2% 0%;
 }
 
-#tableHeading {
-    background-color: #6a7b8b;
-    color: white;
-}
-
-th, td {
-    padding: 10px 10px;
-}

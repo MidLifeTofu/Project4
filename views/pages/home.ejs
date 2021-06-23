@@ -30,9 +30,10 @@
         </thead>
         <tbody>
             <% for (let i = 0; i < schedules.length; i++) { %>
+                <% const dayOfWeek = [null, "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" ] %>
                 <tr>
                     <td><a href="employee/<%= schedules[i].user_id %>"><%= schedules[i].user_id %></a></td>
-                    <td><%= schedules[i].day %></td>
+                    <td><%= dayOfWeek[schedules[i].day] %></td>
                     <td><%= schedules[i].start_at %></td>
                     <td><%= schedules[i].end_at %></td>
                 </tr>
