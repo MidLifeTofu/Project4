@@ -28,6 +28,9 @@ router.post('/', (req, res) => {
     if (req.body.start_at > req.body.end_at) {
         return res.redirect("/newschedule?message=Start%20time%20cannot%20be%20greater%20than%20end%20time.")
     }
+    // if (db.none('SELECT (start_at, end_at) VALUES ($1, $2) OVERLAPS * FROM schedules;', [newSchedule.start_at, newSchedule.end_at])) {
+
+    // }
     else {
          db.none('INSERT INTO schedules(user_id, day, start_at, end_at) VALUES ($1, $2, $3, $4);',
         [newSchedule.user_id, newSchedule.day, newSchedule.start_at, newSchedule.end_at])
