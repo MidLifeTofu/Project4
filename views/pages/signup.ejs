@@ -1,10 +1,11 @@
+<script src="formhandler.js"></script>
 <div>
     <h2>Create Account</h2>
     <p>Complete the form below to add a new user to the database. All fields are required.</p>
 </div>
 
 <div class="formContainer">
-    <form action='/signup' method='POST'>
+    <form id='signupForm' action='/signup' method='POST'>
         <div>
             <label for='name'>First Name:</label>
             <input id='name' name='name' type='text'>
@@ -34,7 +35,7 @@
     </form>
     <div>
         <h2>Already have an account?</h2>
-        <p>Sign in below:</p>
+        <p>Log in below:</p>
     </div>
-    <button onclick="document.location='/login'">Log In</button>
+    <button><a href='/login'>Log In</a></button>
 </div>
