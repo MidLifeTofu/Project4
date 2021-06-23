@@ -4,12 +4,15 @@ const db = require('../database')
 const { redirectToLogin } = require('../middlewear')
 
 router.get('/', redirectToLogin, (req, res) => {
-    res.render('pages/newschedule', {
-        message: req.query.message,
-        req: req,
-        title: 'Schedules'
+    db.any('SELECT * FROM schedules where user_id = $1;', req.session.userId)
+    .then((schedulesData) => {
+        res.render('pages/newschedule', {
+            message: req.query.message,
+            req: req,
+            schedules: schedulesData,
+            title: 'Schedules'
+        })
     })
-
 })
 
 router.post('/', (req, res) => { 
@@ -26,7 +29,7 @@ router.post('/', (req, res) => {
          db.none('INSERT INTO schedules(user_id, day, start_at, end_at) VALUES ($1, $2, $3, $4);',
         [newSchedule.user_id, newSchedule.day, newSchedule.start_at, newSchedule.end_at])
         .then(() => {
-            res.redirect('/')
+            res.redirect('/newschedule?message=Schedule%20added!')
         })
         .catch((err) => {
             // Error if user hasn't been inserted into database

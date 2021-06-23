@@ -30,5 +30,27 @@
         <button type='submit'>Submit Schedule</button>
     </form>
 <div>
-<h2>Your current Schedule:</h2>
-<p>Here is a list of your current schedules:</p>
+<h2>Your current Schedules:</h2>
+<% if (Object.keys(schedules).length !== 0) { %> 
+    <table>
+        <thead>
+            <tr>
+                <th>Day</th>
+                <th>Start Time</th>
+                <th>End Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for (let i = 0; i < schedules.length; i++) { %>
+                <% const dayOfWeek = [null, "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" ] %>
+                <tr>
+                    <td><%= dayOfWeek[schedules[i].day] %></td>
+                    <td><%= schedules[i].start_at %></td>
+                    <td><%= schedules[i].end_at %></td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+<% } else { %>
+    <strong>Currently no schedules booked</strong>
+<% } %>
