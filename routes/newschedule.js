@@ -13,6 +13,9 @@ router.get('/', redirectToLogin, (req, res) => {
             title: 'Schedules'
         })
     })
+    .catch((err) => {
+        res.send(err.message)
+    })
 })
 
 router.post('/', (req, res) => { 
