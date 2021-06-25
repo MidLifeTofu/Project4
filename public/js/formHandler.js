@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const formEmail = document.querySelector("#email");
 
     formButton.onsubmit = (e) => {
-        e.preventDefault()
+        e.preventDefault() // REMOVE ME ONCE DONE TESTING VALIDATION OR FORM WON'T POST TO DATABASE
         
         console.log("Validation Start")
 
