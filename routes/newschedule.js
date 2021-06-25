@@ -3,18 +3,28 @@ const router = express.Router()
 const db = require('../database')
 const { redirectToLogin } = require('../middlewear')
 
+
+
 router.get('/', redirectToLogin, (req, res) => {
-    db.any('SELECT * FROM schedules where user_id = $1 ORDER BY day;', req.session.userId)
+    db.any('SELECT * FROM schedules where user_id = $1 ORDER BY day, start_at;', req.session.userId)
     .then((schedulesData) => {
         res.render('pages/newschedule', {
             message: req.query.message,
             req: req,
             schedules: schedulesData,
-            title: 'Schedules'
+            title: 'Schedules',
+            db: db
         })
     })
     .catch((err) => {
         res.send(err.message)
+    })
+})
+
+router.post('/delete/:id(\\d+)', redirectToLogin, (req, res) => {
+    db.none('DELETE FROM schedules WHERE id = $1 AND user_id = $2;', [req.params.id, req.session.userId])
+    .then(() => {
+        return res.redirect('/newschedule?message=Schedule%20deleted.')
     })
 })
 
