@@ -42,15 +42,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
         //validation test, if all are valid, present requested info
         if (nameValid && surnameValid && emailValid) {
-            alert("Validation successful!")
             console.log({
                 Name: formName.value,
                 Surname: formSurname.value,
                 Email: formEmail.value
             })
         } else {
-            alert("Oops! Validation failed!");
-      returnToPreviousPage();
             console.log("Something is not valid")
         }
     }
