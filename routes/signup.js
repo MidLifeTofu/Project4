@@ -57,8 +57,4 @@ router.post('/', (req, res) => {
     })
 })
 
-router.get('/success', (res, req) => {
-    res.render()
-})
-
 module.exports = router

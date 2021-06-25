@@ -45,13 +45,6 @@ router.post('/', (req, res) => {
             })
         }
     })
-        
-
-    
-
-
-    // if successful, create session and redirect
-
     .catch((err) => {
         res.send(err.message)
     })

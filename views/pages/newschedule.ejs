@@ -1,6 +1,6 @@
 <h2>New Schedule</h2>
 <p>Enter all details to create a new schedule.</p>
-</div>
+<div>
     <form action='/newschedule' method='POST'>
         <div>
             <label for='day'>Day:</label>
@@ -12,7 +12,7 @@
                 <option value="5">Friday</option>
                 <option value="6">Saturday</option>
                 <option value="7">Sunday</option>
-              </select>
+                </select>
         </div>
         <div>
             <label for='start_at'>Start At:</label>
@@ -25,32 +25,34 @@
         <div>
             <% if(message) { %>
                 <p style='color: red'><%= message %></p>
-            <% } %>    
+            <% } %>
         </div>
         <button type='submit'>Submit Schedule</button>
     </form>
+</div>
 <div>
-<h2>Your current Schedules:</h2>
-<% if (Object.keys(schedules).length !== 0) { %> 
-    <table>
-        <thead id='tableHeading'>
-            <tr>
-                <th>Day</th>
-                <th>Start Time</th>
-                <th>End Time</th>
-            </tr>
-        </thead>
-        <tbody>
-            <% for (let i = 0; i < schedules.length; i++) { %>
-                <% const dayOfWeek = [null, "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" ] %>
+    <h2>Your current Schedules:</h2>
+    <% if (Object.keys(schedules).length !== 0) { %>
+        <table>
+            <thead id='tableHeading'>
                 <tr>
-                    <td><%= dayOfWeek[schedules[i].day] %></td>
-                    <td><%= schedules[i].start_at %></td>
-                    <td><%= schedules[i].end_at %></td>
+                    <th>Day</th>
+                    <th>Start Time</th>
+                    <th>End Time</th>
                 </tr>
-            <% } %>
-        </tbody>
-    </table>
-<% } else { %>
-    <strong>Currently no schedules booked</strong>
-<% } %>
+            </thead>
+            <tbody>
+                <% for (let i = 0; i < schedules.length; i++) { %>
+                    <% const dayOfWeek = [null, "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" ] %>
+                    <tr>
+                        <td><%= dayOfWeek[schedules[i].day] %></td>
+                        <td><%= schedules[i].start_at %></td>
+                        <td><%= schedules[i].end_at %></td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+    <% } else { %>
+        <strong>Currently no schedules booked</strong>
+    <% } %>
+</div>
