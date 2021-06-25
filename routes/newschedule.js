@@ -81,39 +81,13 @@ router.post('/', (req, res) => {
         return res.redirect(`/newschedule?message=${message}`)
     })
 
-
-    // Tried making a function but couldn't get it to function
-    // function checkOverlap(input) {
-    //     for (let i = 0; i < input.length; i++) {
-    //         db.any('SELECT (TIME $1, TIME $2) OVERLAPS (TIME $3, TIME $4);', [newSchedule.start_at, newSchedule.end_at, input[i].start_at, input[i].end_at])
-    //         .then((results) => {
-    //             if (results) {
-    //                 return overlap = true
-    //             }
-    //         })
-    //         .catch((err) => {
-    //             // Error if user hasn't been inserted into database
-    //             const message = err.message.replace(/ /g, '%20')
-    //             return res.redirect(`/newschedule?message=${message}`)
-    //         })
-    //     }
-    // }
-
-    // db.any('SELECT * FROM schedules WHERE user_id = $1 AND day = $2;',[newSchedule.user_id, newSchedule.day])
-    //     .then((data) => {
-    //         checkOverlap(data)
-    // })
-    
-
     // Original method, does what I want but keeps reloading the page due to the loop
     // db.any('SELECT * FROM schedules WHERE user_id = $1;',[newSchedule.user_id])
     // .then((data) => {
     //     for (let i = 0; i < data.length; i++) {
-    //         console.log("Test 2")
     //         db.any('SELECT (TIME $1, TIME $2) OVERLAPS (TIME $3, TIME $4);', [newSchedule.start_at, newSchedule.end_at, data[i].start_at, data[i].end_at])
     //         .then((results) => {
     //             if (results) {
-    //                 console.log(results)
     //                 return res.redirect("/newschedule?message=Schedule%20overlaps.")
     //             }
     //             else {
@@ -140,7 +114,6 @@ router.post('/', (req, res) => {
     //     const message = err.message.replace(/ /g, '%20')
     //     return res.redirect(`/newschedule?message=${message}`)
     // })
-    // console.log("Test 3")
 
     
 })
