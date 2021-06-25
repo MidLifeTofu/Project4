@@ -1,14 +1,13 @@
-<header>
-    <div>
+<div>
     <img src='/Assets/logo_blanc.png' alt='White Mr. Coffee Logo' id='whiteLogo'>
     <h1>Scheduling Website</h1>
-    </div>
-    <% if (req.session.userId) { %>
-        <nav>
+</div>
+<% if (req.session.userId) { %>
+    <nav class="flex space-between">
+        <div>
             <a href="/">Home</a>
             <a href="/newschedule">New Schedules</a>
-            <a href="/logout">Logout</a>
-        </nav>
-    <% } %>
-</header>
-<main>
+        </div>
+        <a href="/logout">Logout</a>
+    </nav>
+<% } %>

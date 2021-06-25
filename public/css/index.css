@@ -21,6 +21,8 @@ main {
     justify-content: space-evenly;
 }
 
+
+
 #tableHeading {
     background-color: #6a7b8b;
     color: white;
@@ -43,11 +45,16 @@ header > div:first-child {
     align-items: center;
 }
 
-header > div:nth-child(2){
+nav {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    padding: 0 0 1% 0;
+    margin: 20px;
+    width: 100%;
+}
+
+nav > div > a {
+    margin-right: 30px;
 }
 
 header > h1 {
@@ -58,12 +65,6 @@ header > h1 {
     height: 100px;
     width: auto;
     margin: 10px 10px;
-}
-
-nav {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 10px;
 }
 
 /* FOOTER */
