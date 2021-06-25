@@ -4,7 +4,7 @@ const db = require('../database')
 const { redirectToLogin } = require('../middlewear')
 
 router.get('/', redirectToLogin, (req, res) => {
-    db.any('SELECT * FROM schedules where user_id = $1 ORDER BY day;', req.session.userId)
+    db.any('SELECT * FROM schedules where user_id = $1 ORDER BY day, start_at;', req.session.userId)
     .then((schedulesData) => {
         res.render('pages/newschedule', {
             message: req.query.message,
