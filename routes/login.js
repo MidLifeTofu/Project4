@@ -31,7 +31,6 @@ router.post('/', (req, res) => {
             const email = existingUser.email
             const hash = existingUser.password
             const userId = existingUser.id
-            console.log(existingUser)
             bcrypt.compare(req.body.password, hash, function(err, result) {
                 if (result) {
                     // if successful, create session and redirect
@@ -39,7 +38,6 @@ router.post('/', (req, res) => {
                     res.redirect('/')
                 } 
                 else {
-                    console.log(err)
                     return res.redirect('/login?message=Incorrect%20login%20details.')
                 }
             })

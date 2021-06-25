@@ -39,13 +39,10 @@ router.post('/', (req, res) => {
             db.none('INSERT INTO users(first_name, surname, email, password) VALUES ($1, $2, $3, $4);',
             [newUser.firstName, newUser.surname, newUser.email, newUser.password])
             .then(() => {
-                console.log(newUser)
                 res.redirect('/login')
             })
             .catch((err) => {
                 // Error if user hasn't been inserted into database
-                console.log(err.message)
-                console.log(newUser.password)
                 const message = err.message.replace(/ /g, '%20')
                 res.redirect(`/signup?message=${message}`)
             })
