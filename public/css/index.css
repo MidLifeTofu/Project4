@@ -101,6 +101,15 @@ button {
     border-radius: 10px;
 }
 
+.delete-button {
+    color: red;
+    background: none;
+    border: none;
+    padding: 0;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 /* Home Page Table */
 
 #hometable {
