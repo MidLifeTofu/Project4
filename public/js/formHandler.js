@@ -12,9 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const formEmail = document.querySelector("#email");
 
     formButton.onsubmit = (e) => {
-        e.preventDefault() // REMOVE ME ONCE DONE TESTING VALIDATION OR FORM WON'T POST TO DATABASE
-        
-        console.log("Validation Start")
 
         //name validation
     const nameValid = /^[A-Za-zÀ-ÖØ-öø-ÿ \-']+$/i.test(formName.value)
@@ -47,8 +44,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 Surname: formSurname.value,
                 Email: formEmail.value
             })
+            return true;
         } else {
             console.log("Something is not valid")
+            return false;
         }
     }
 })
