@@ -15,27 +15,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
         //name validation
     const nameValid = /^[A-Za-zÀ-ÖØ-öø-ÿ \-']+$/i.test(formName.value)
-        if (nameValid === true) { 
-            console.log("Name is valid!")
-        } else {
-            console.log("That's not a valid name")
-        }
-    
+      
     const surnameValid = /^[A-Za-zÀ-ÖØ-öø-ÿ \-']+$/i.test(formSurname.value)
-        if (surnameValid === true) { 
-            console.log("Name is valid!")
-        } else {
-            console.log("That's not a valid name")
-        }
 
         //email validation
     const emailValid = /^[a-zA-Z0-9\-_]+[a-zA-Z0-9\-_\.]*@[a-zA-Z0-9\-_]+\.[a-zA-Z0-9\-_\.]+$/.test(formEmail.value)
-
-        if (emailValid === true) { 
-            console.log("Email is valid!")
-        } else {
-            console.log("That's not a valid email")
-        }
 
         //validation test, if all are valid, present requested info
         if (nameValid && surnameValid && emailValid) {
