@@ -48,19 +48,23 @@ router.post('/', (req, res) => {
     const formArrayOfQueries = (data, newSchedule) => {
         let arrayOfQueries = []
         for (i = 0; i < data.length; i++) {
+            console.log([newSchedule.start_at, newSchedule.end_at, data[i].start_at, data[i].end_at])
             const query = db.any('SELECT (TIME $1, TIME $2) OVERLAPS (TIME $3, TIME $4);', [newSchedule.start_at, newSchedule.end_at, data[i].start_at, data[i].end_at])
             arrayOfQueries.push(query)
         }
         return arrayOfQueries
     }
-    db.any('SELECT * FROM schedules WHERE user_id = $1;',[newSchedule.user_id])
+    db.any('SELECT * FROM schedules WHERE user_id = $1 AND day = $2;',[newSchedule.user_id, newSchedule.day])
     .then(data => {
+        console.log(data)
         // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all
         Promise.all(formArrayOfQueries(data, newSchedule))
         .then(arrayOfOverlaps => {
             console.log(arrayOfOverlaps)
-            // Reduce will find sum of all array elements
-            if (arrayOfOverlaps.reduce((accu, curval) => accu + curval)) {
+            // arrayOfOverlaps will look like this: [ [ { overlaps: false } ], [ { overlaps: true } ], [ { overlaps: false } ] ]
+            // Filter arrayOfOverlaps to find out if it has at least one element === [ { overlaps: true } ]
+            const filteredArrayOfOverlaps = arrayOfOverlaps.filter(x => x[0].overlaps === true)
+            if (data.length !== 0 && filteredArrayOfOverlaps.length !== 0) {
                 return res.redirect("/newschedule?message=Schedule%20overlaps.")
             // Below code without changes
             } else {
